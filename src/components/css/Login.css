@@ -1,0 +1,60 @@
+/* Login.css */
+.form {
+  max-width: 400px; /* Limit the width of the form */
+  margin: 50px auto; /* Center the form horizontally and add space at the top */
+  padding: 20px; /* Add padding inside the form */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 8px; /* Rounds the corners */
+  background-color: #f1f9ff; /* Light blue background */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #0056b3; /* Darker blue for label text */
+}
+
+.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Blue focus border */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button[type="submit"] {
+  background-color: #007bff; /* Blue background */
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  display: block;
+  margin: 0 auto; /* Center the button */
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white; /* White text color */
+  transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  cursor: pointer;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.form-text {
+  color: #6c757d;
+}
+

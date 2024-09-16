@@ -1,0 +1,111 @@
+function App() {
+	const [formData, setFormData] = useState({
+		name: '',
+		username: '',
+		email: '',
+		password: '',
+		repeatPassword: '',
+	});
+
+	const [formStatus, setFormStatus] = useState({
+		color: '',
+		msg: '',
+	});
+
+	const [showAlert, setShowAlert] = useState(false);
+
+	const handleOnChange = (event) => {
+		const { name, value } = event.target;
+
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+	};
+
+	const handleOnSubmit = (event) => {
+		event.preventDefault();
+		const { name, username, email, password, repeatPassword } = event.target;
+
+		const form = {
+			name: name.value,
+			username: username.value,
+			email: email.value,
+			password: password.value,
+			repeatPassword: repeatPassword.value,
+		};
+
+		handleValidateForm(form);
+
+		setShowAlert(true);
+
+		setTimeout(() => {
+			setShowAlert(false);
+		}, 5000);
+	};
+
+	const handleValidateForm = ({
+		name,
+		username,
+		email,
+		password,
+		repeatPassword,
+	}) => {
+		// eslint-disable-next-line no-unused-vars
+		const formErrors = {};
+
+		if (!name || !username || !email || !password) {
+			setFormStatus({
+				color: 'danger',
+				msg: 'Todos los campos son obligatorios',
+			});
+		} else if (password !== repeatPassword) {
+			setFormStatus({
+				color: 'warning',
+				msg: 'Credenciales incorrectas',
+			});
+		} else if (name && username && email && password) {
+			setFormStatus({
+				color: 'success',
+				msg: 'Registro éxitoso',
+			});
+		}
+
+	};
+
+	return (
+		<>
+    <Navbar/>
+    <Header/>
+			{/* <h1>Registro</h1>
+			<hr />
+			<Register
+				handleOnChange={handleOnChange}
+				handleOnSubmit={handleOnSubmit}
+			/> */}
+			<h1>Login</h1>
+			<hr />
+			<Login
+				handleOnChange={handleOnChange}
+				handleOnSubmit={handleOnSubmit}
+			/>
+			<AlertVite
+				color={formStatus.color}
+				msg={formStatus.msg}
+				show={showAlert}
+				setShow={setShowAlert}
+			/>
+      <br/>
+      <Footer/>
+		</>
+	);
+}
+
+export default App;
+
+<Route 
+          path="/cart"
+            element={<Home />}
+        >
+          <Route index element={ <Pizza />} />
+            </ Route>

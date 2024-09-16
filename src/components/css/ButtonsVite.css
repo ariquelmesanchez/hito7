@@ -1,0 +1,70 @@
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .button {
+    
+    background: transparent; /* Remove background */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Flexbox layout for alignment */
+    align-items: center; /* Center align items */
+    justify-content: center; /* Center align content */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for background color and scaling */
+  }
+  
+  .button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+  }
+  
+  .button:active {
+    background-color: rgba(0, 0, 0, 0.2); /* Darker background on click */
+    transform: scale(0.98); /* Slightly shrink button on click */
+  }
+  
+  .button svg {
+    width: 70px; /* Width of the SVG icon (half the button size) */
+    height: 70px; /* Height of the SVG icon (half the button size) */
+    fill: currentColor; /* Use current text color for SVG fill */
+    transition: fill 0.3s; /* Smooth transition for fill color */
+  }
+  
+  .button-primary svg {
+    color: #007bff; /* Primary color for SVG icon */
+  }
+  
+  .button-primary:hover svg {
+    color: #0056b3; /* Darker shade on hover */
+  }
+  
+  .button-primary:active svg {
+    color: #004085; /* Even darker shade on click */
+  }
+  
+  .button-secondary svg {
+    color: #dc3545; /* Secondary color for SVG icon */
+  }
+  
+  .button-secondary:hover svg {
+    color: #c82333; /* Darker shade on hover */
+  }
+  
+  .button-secondary:active svg {
+    color: #bd2130; /* Even darker shade on click */
+  }
+  .quantity-input {
+    color: black;
+    
+  }
+  .form-control {
+    color: black; /* Sets the text color to black */
+  }
+  
+  /* If you need to be more specific */
+  .form-control.form-control-sm {
+    color: black; /* Ensures the smaller form control input also has black text */
+  }

@@ -1,0 +1,27 @@
+
+
+.home-background {
+  background-image: url(../public/images/pizza-back.jpg);
+  background-size: cover;
+  background-position: center;
+ 
+  width: 100%;
+
+}
+body {
+  font-family: 'Roboto', sans-serif;
+ 
+}
+.cupon {
+  width: 100%;
+
+}
+p, 
+.gris,
+input [placeholder] {
+  color: #707070;
+  font-weight: 300;
+}
+.bg-green {
+  background-color: rgb(24, 184, 24);
+}

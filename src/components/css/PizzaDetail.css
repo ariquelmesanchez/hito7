@@ -1,0 +1,47 @@
+/* PizzaDetail.css */
+
+/* Container for the pizza detail section */
+.pizza-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-transform: capitalize;
+  }
+  
+  /* Header style */
+  .pizza-detail-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Image style */
+  .pizza-detail-container img {
+    display: block; /* Remove inline display properties */
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto 20px; 
+  }
+  
+  /* Paragraph style */
+  .pizza-detail-container p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* Price style */
+  .pizza-detail-container .price {
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
+  /* Ingredients list */
+  .pizza-detail-container .ingredients {
+    font-style: italic;
+    color: #2c3e50;
+  }
+  

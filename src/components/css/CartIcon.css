@@ -1,0 +1,36 @@
+/* Basic styles for the icon container */
+.cart-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  background-color: transparent; /* Or set a background color if needed */
+  border-radius: 4px; /* Optional: Adds rounded corners */
+  padding: 4px; /* Optional: Adds space around the icon */
+  transition: transform 0.3s ease; /* Optional: Adds a smooth transform effect */
+}
+
+/* SVG styles */
+.cart-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor; /* Uses the text color of the container */
+  transition: fill 0.3s ease; /* Smooth color transition effect */
+}
+
+/* Hover effect */
+.cart-icon:hover svg {
+  fill: #007bff; /* Change the fill color of the SVG on hover */
+}
+
+/* Hover effect for specific parts of the SVG */
+.cart-icon:hover .cls-1 {
+  fill: url(#linear-gradient-hover); /* Change gradient color on hover */
+}
+
+.cart-icon:hover .cls-2,
+.cart-icon:hover .cls-3,
+.cart-icon:hover .cls-4 {
+  stroke: #ff5722; /* Change stroke color on hover */
+}

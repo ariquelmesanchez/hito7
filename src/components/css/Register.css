@@ -1,0 +1,60 @@
+/* Register.css */
+.form2 {
+    max-width: 400px; /* Limit the width of the form */
+    margin: 50px auto; /* Center the form horizontally and add space at the top */
+    padding: 20px; /* Add padding inside the form */
+    border: 2px solid #343a40; /* Add a dark border */
+    border-radius: 8px; /* Optional: Rounds the corners */
+    background-color: #f8f9fa; /* Optional: Add a background color */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for depth */
+    text-align: center; /* Center align text inside the form */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button[type="submit"] {
+    background-color: #0f1318;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 1rem; /* Space above the button */
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.form-text {
+    color: #6c757d;
+}
+
+  
