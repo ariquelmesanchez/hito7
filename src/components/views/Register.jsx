@@ -1,12 +1,13 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import '../css/Register.css';
-import FormParent from '../sub-components/FormParent';
+// import FormParent from '../sub-components/FormParent';
+import RegisterForm from '../sub-components/RegisterForm';
 
 export const Register = () => {
   return (
     <>
-      <FormParent />
+      {/* <FormParent /> */}
+      <RegisterForm />
     </>
   );
 };
