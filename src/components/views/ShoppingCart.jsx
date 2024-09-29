@@ -63,6 +63,11 @@ export const ShoppingCart = () => {
       console.error('Error during checkout:', error);
       alert('Checkout failed. Please try again.');
     }
+
+    // Set timeout to hide the message after 5 seconds
+    setTimeout(() => {
+      setPurchaseCompleted(false);
+    }, 5000);
   };
 
   return (
@@ -152,7 +157,7 @@ export const ShoppingCart = () => {
                   type="button"
                   className="btn btn-warning btn-block btn-lg mt-3"
                   onClick={handleCheckout}
-                  disabled={!token}  // Disable if token is false
+                  disabled={!token || cart.length === 0}  // Disable if token is false or cart is empty
                 >
                   Proceed to Pay
                 </button>
@@ -171,6 +176,7 @@ export const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+
 
 
 
