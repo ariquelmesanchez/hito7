@@ -9,7 +9,7 @@ const UserProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const UserProvider = ({ children }) => {
 
   const register = async (email, password) => {
     try {
-      const response = await fetch('/api/auth/register', {
+      const response = await fetch('http://localhost:5000/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const UserProvider = ({ children }) => {
 
   const getProfile = async () => {
     try {
-      const response = await fetch('/api/auth/me', {
+      const response = await fetch('http://localhost:5000/api/auth/me', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -78,6 +78,28 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const checkout = async (orderDetails) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Enviar el token JWT en el header
+        },
+        body: JSON.stringify(orderDetails),
+      });
+
+      if (!response.ok) {
+        throw new Error('Checkout failed');
+      }
+
+      const data = await response.json();
+      return data; // Retornar los datos de respuesta del checkout
+    } catch (error) {
+      console.error('Error during checkout:', error);
+    }
+  };
+
   return (
     <UserContext.Provider value={{
       token,
@@ -87,6 +109,7 @@ const UserProvider = ({ children }) => {
       register,
       logout,
       getProfile, // Añadir el método getProfile al contexto
+      checkout, // Añadir el método checkout al contexto
     }}>
       {children}
     </UserContext.Provider>
@@ -94,6 +117,7 @@ const UserProvider = ({ children }) => {
 };
 
 export default UserProvider;
+
 
 
 
