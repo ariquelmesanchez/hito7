@@ -51,6 +51,7 @@ const UserProvider = ({ children }) => {
   };
 
   const logout = () => {
+    // Eliminar token y email del estado
     setToken(null);
     setEmail(null);
   };
@@ -69,4 +70,5 @@ const UserProvider = ({ children }) => {
 };
 
 export default UserProvider;
+
 
