@@ -15,6 +15,9 @@ export const Navbar = () => {
           <li className="nav-item">
             <Link className="nav-link active" to="/">Home</Link>
           </li>
+          <li className='nav.item'>
+          <Link className='nav-link' to="/cart" style={{ fontWeight: 'bold', fontStyle: 'italic' }}>🛒 Carrito</Link>
+          </li>
           {token ? (
             <>
               <li className="nav-item">
