@@ -5,15 +5,16 @@ import '../css/ButtonsVite.css';
 
 export const ShoppingCart = () => {
   const { cart, totalPrice, removeFromCart, addToCart } = useCart();
-  const { token } = useContext(UserContext);
+  const { token, checkout } = useContext(UserContext);
 
-  // Local state to manage quantities
+  // Local state to manage quantities and success message
   const [quantities, setQuantities] = useState(
     cart.reduce((acc, item) => {
       acc[item.id] = item.quantity || 1; // Initialize with current quantities
       return acc;
     }, {})
   );
+  const [purchaseCompleted, setPurchaseCompleted] = useState(false); // State for purchase message
 
   // Update quantity in local state
   const handleQuantityChange = (id, quantity) => {
@@ -35,6 +36,32 @@ export const ShoppingCart = () => {
     // Remove from cart for any excess quantity
     for (let i = 0; i < item.quantity - quantity; i++) {
       removeFromCart(item.id);
+    }
+  };
+
+  // Handle checkout process
+  const handleCheckout = async () => {
+    setPurchaseCompleted(true); // Immediately display the message after clicking
+
+    const orderDetails = {
+      items: cart.map(item => ({
+        id: item.id,
+        name: item.name,
+        quantity: quantities[item.id] || 1,
+        price: item.price,
+      })),
+      total: totalPrice,
+    };
+
+    try {
+      const response = await checkout(orderDetails);
+      if (response) {
+        alert('¡CHECKOUT EXITOSO!');
+        // Optionally, clear cart after successful checkout
+      }
+    } catch (error) {
+      console.error('Error during checkout:', error);
+      alert('Checkout failed. Please try again.');
     }
   };
 
@@ -117,28 +144,6 @@ export const ShoppingCart = () => {
               <p>Your cart is empty.</p>
             )}
 
-            {/* Discount Code Section */}
-            <div className="card mb-4">
-              <div className="card-body p-4 d-flex flex-row">
-                <div className="form-outline flex-fill">
-                  <input
-                    type="text"
-                    id="form1"
-                    className="form-control form-control-lg"
-                  />
-                  <label className="form-label" htmlFor="form1">
-                    Discount code
-                  </label>
-                </div>
-                <button
-                  type="button"
-                  className="btn btn-outline-warning btn-lg ms-3"
-                >
-                  Apply
-                </button>
-              </div>
-            </div>
-
             {/* Total Price Section */}
             <div className="card">
               <div className="card-body">
@@ -146,10 +151,16 @@ export const ShoppingCart = () => {
                 <button
                   type="button"
                   className="btn btn-warning btn-block btn-lg mt-3"
+                  onClick={handleCheckout}
                   disabled={!token}  // Disable if token is false
                 >
                   Proceed to Pay
                 </button>
+
+                {/* Display message when purchase is completed */}
+                {purchaseCompleted && (
+                  <p className="text-success mt-3">Purchase completed!</p>
+                )}
               </div>
             </div>
           </div>
@@ -160,3 +171,6 @@ export const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+
+
+
