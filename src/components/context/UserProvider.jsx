@@ -5,6 +5,7 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [email, setEmail] = useState(null);
+  const [profile, setProfile] = useState(null); // Añadido para almacenar el perfil del usuario
 
   const login = async (email, password) => {
     try {
@@ -51,18 +52,41 @@ const UserProvider = ({ children }) => {
   };
 
   const logout = () => {
-    // Eliminar token y email del estado
     setToken(null);
     setEmail(null);
+    setProfile(null); // Limpiar el perfil del estado al hacer logout
+  };
+
+  const getProfile = async () => {
+    try {
+      const response = await fetch('/api/auth/me', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Enviar el token JWT en el header
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch profile');
+      }
+
+      const data = await response.json();
+      setProfile(data); // Almacenar los datos del perfil en el estado
+    } catch (error) {
+      console.error('Error fetching profile:', error);
+    }
   };
 
   return (
     <UserContext.Provider value={{
       token,
       email,
+      profile, // Exponer el perfil en el contexto
       login,
       register,
       logout,
+      getProfile, // Añadir el método getProfile al contexto
     }}>
       {children}
     </UserContext.Provider>
@@ -70,5 +94,6 @@ const UserProvider = ({ children }) => {
 };
 
 export default UserProvider;
+
 
 
