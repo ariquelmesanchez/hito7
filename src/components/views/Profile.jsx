@@ -11,8 +11,13 @@ export const Profile = () => {
               <MDBRow className="g-0">
                 <MDBCol md="4" className="gradient-custom text-center text-white"
                   style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                  <MDBCardImage src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                    alt="Avatar" className="my-5" style={{ width: '80px' }} fluid />
+                  <MDBCardImage 
+                  src="https://img.freepik.com/free-vector/pizza-boy-cartoon_23-2147498558.jpg?t=st=1727581567~exp=1727585167~hmac=247062540ed31dc89d0ee1c15f1b164671a20056976351c358a8a934c183b303&w=740"
+                   alt="Avatar" 
+                   className="my-5 rounded-circle" 
+                  style={{ width: '80px' }} 
+                   fluid 
+                  />
                   <MDBTypography tag="h5">Marie Horwitz</MDBTypography>
                   <MDBCardText>Web Designer</MDBCardText>
                   <MDBIcon far icon="edit mb-5" />
