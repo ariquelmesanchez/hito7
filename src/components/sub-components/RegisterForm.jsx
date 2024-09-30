@@ -6,19 +6,18 @@ import {
   MDBCardBody,
   MDBInput,
   MDBCheckbox
-}
-from 'mdb-react-ui-kit';
+} from 'mdb-react-ui-kit';
 import { UserContext } from '../context/UserProvider';
 
-
 const RegisterForm = () => {
-    const {register} = useContext(UserContext);
+    const { register } = useContext(UserContext);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
         confirmPassword: '',
     });
+
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
@@ -29,15 +28,24 @@ const RegisterForm = () => {
     const handleRegister = async () => {
         const { email, password, confirmPassword } = formData;
 
-        if (password !== confirmPassword) {
-            alert ('¡Las contraseñas deben coincidir!');
+        // Check if password is at least 6 characters
+        if (password.length < 6) {
+            alert('La contraseña debe tener al menos 6 caracteres.');
             return;
         }
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert('¡Las contraseñas deben coincidir!');
+            return;
+        }
+
+        // Proceed with registration
         await register(email, password);
-    }
+    };
 
     return (
-        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://img.freepik.com/free-vector/hand-drawn-pizza-pattern-background_23-2150905263.jpg?t=st=1727571246~exp=1727574846~hmac=3b279f6fa10d08ab067dcb69215dabfa936e0ea01c094863b24a15525ffe4f3e&w=740'}}>
+        <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://img.freepik.com/free-vector/hand-drawn-pizza-pattern-background_23-2150905263.jpg?t=st=1727571246~exp=1727574846~hmac=3b279f6fa10d08ab067dcb69215dabfa936e0ea01c094863b24a15525ffe4f3e&w=740'}} >
           <div className='mask gradient-custom-3'></div>
           <MDBCard className='m-5' style={{maxWidth: '600px'}}>
             <MDBCardBody className='px-5'>
@@ -91,7 +99,7 @@ const RegisterForm = () => {
             </MDBCardBody>
           </MDBCard>
         </MDBContainer>
-      );
-    };
-    
-    export default RegisterForm;
+    );
+};
+
+export default RegisterForm;
